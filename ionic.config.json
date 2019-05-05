@@ -1,5 +1,7 @@
 {
   "name": "refresh-slider-issue",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
