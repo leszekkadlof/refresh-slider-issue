@@ -4,6 +4,15 @@
             Ionic Blank
         </ion-title>
     </ion-toolbar>
+
+    <ion-segment (ionChange)="onTabChange($event.detail.value)">
+        <ion-segment-button value="page1">
+            Page 1
+        </ion-segment-button>
+        <ion-segment-button value="page2">
+            Page 2
+        </ion-segment-button>
+    </ion-segment>
 </ion-header>
 
 <ion-content>
@@ -16,8 +25,11 @@
     </ion-refresher>
 
     <ion-slides
-            [style.width]="'100%'"
-            [style.height]="'100%'">
+        #slides pager="false"
+
+        [options]="'{ effect: \'flip\'}'"
+        [style.width]="'100%'"
+        [style.height]="'100%'">
 
         <ion-slide
                 [style.width]="'100%'"
@@ -28,7 +40,7 @@
                     [style.width]="'100%'"
             >
 
-                <ion-item-sliding *ngFor="let item of list">
+                <ion-item-sliding *ngFor="let item of list1">
                     <ion-item>
                         {{item}}
                     </ion-item>
@@ -42,6 +54,28 @@
             </ion-list>
         </ion-slide>
 
+        <ion-slide
+                [style.width]="'100%'"
+                [style.height]="'100%'">
+            <ion-list
+                    [style.overflow-y]="'auto'"
+                    [style.height]="'100%'"
+                    [style.width]="'100%'"
+            >
+
+                <ion-item-sliding *ngFor="let item of list2">
+                    <ion-item>
+                        {{item}}
+                    </ion-item>
+
+                    <ion-item-options side="end">
+                        <ion-item-option>Slide 1</ion-item-option>
+                    </ion-item-options>
+
+                </ion-item-sliding>
+
+            </ion-list>
+        </ion-slide>
 
     </ion-slides>
 
